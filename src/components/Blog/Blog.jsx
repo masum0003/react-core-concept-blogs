@@ -2,7 +2,7 @@ import React from 'react';
 import { FaBookmark } from "react-icons/fa";
 
 
-const Blog = ({blog}) => {
+const Blog = ({blog ,handleBookMark,handleReadCount}) => {
     const{cover,title,author,author_img }=blog;
    
     return (
@@ -19,7 +19,7 @@ const Blog = ({blog}) => {
         <div className="author flex items-center justify-around">
                     <h3>{author}</h3>
                     <img className='w-16' src={author_img} alt="" />
-                    <FaBookmark />
+                    <button onClick={()=> handleBookMark(blog)}><FaBookmark size={25}/></button>
 
         </div>
       </div>
@@ -39,7 +39,7 @@ const Blog = ({blog}) => {
       </div>
     
     <div className="card-actions justify-center">
-          <button className='btn btn-primary w-30'>Read More</button>
+          <button onClick={ () => handleReadCount(blog.reading_time)} className='btn btn-primary w-30'>Read More</button>
     </div>
   </div>
 </div>
