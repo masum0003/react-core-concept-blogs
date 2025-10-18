@@ -1,0 +1,46 @@
+import React from 'react';
+
+const Blog = ({blog}) => {
+    const{cover,title,author,author_img}=blog;
+   
+    return (
+        <div>
+           
+            <div className="card bg-base-100 w-96 shadow-sm">
+  <figure>
+    <img
+      src={cover}
+      alt="Shoes" />
+  </figure>
+
+      <div className="card-body ">
+        <div className="author flex items-center justify-around">
+                    <h3>{author}</h3>
+                    <img className='w-16' src={author_img} alt="" />
+        </div>
+      </div>
+
+  <div className="card-body">
+    <h2 className="card-title">
+      {title}
+  </h2>
+
+    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+
+
+      {
+        blog.hashtags.map((has) =>{
+          <p>{has}</p>
+        })
+      }
+    
+    <div className="card-actions justify-center">
+          <button className='btn btn-primary w-30'>Read More</button>
+    </div>
+  </div>
+</div>
+        </div>
+    );
+};
+
+export default Blog;
