@@ -1,7 +1,9 @@
 import React from 'react';
+import { FaBookmark } from "react-icons/fa";
+
 
 const Blog = ({blog}) => {
-    const{cover,title,author,author_img}=blog;
+    const{cover,title,author,author_img }=blog;
    
     return (
         <div>
@@ -17,6 +19,8 @@ const Blog = ({blog}) => {
         <div className="author flex items-center justify-around">
                     <h3>{author}</h3>
                     <img className='w-16' src={author_img} alt="" />
+                    <FaBookmark />
+
         </div>
       </div>
 
@@ -27,12 +31,12 @@ const Blog = ({blog}) => {
 
     <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
 
-
+      <div className="flex">
+            
       {
-        blog.hashtags.map((has) =>{
-          <p>{has}</p>
-        })
+        blog.hashtags.map((has) => <p >{has}</p> )
       }
+      </div>
     
     <div className="card-actions justify-center">
           <button className='btn btn-primary w-30'>Read More</button>
