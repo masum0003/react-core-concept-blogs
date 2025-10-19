@@ -12,14 +12,22 @@ function App() {
 
   const handleBookMark = (blog) =>{
     // console.log(blog)
-
     const newBookMarked = [...bookMarked, blog];
     setBookMarked(newBookMarked)
   }
 
-    const handleReadCount = (time) =>{
+    const handleReadCount = (time,id) =>{
       const newReadCount = readTime+time;
       setReadTime(newReadCount);
+      handleRemoveMark(id)
+      
+    }
+
+    const handleRemoveMark = (id) =>{
+        const remainingBookMark = bookMarked.filter((mark) => mark.id !== id);
+        setBookMarked(remainingBookMark)
+
+
     }
     
   return (
@@ -35,12 +43,12 @@ function App() {
             </div>
 
             <div 
-            className="right-container w-[30%] border-1 border-amber-300 roundedf">
+            className="right-container w-[30%] border-1 border-amber-300 rounded">
                 <h1 className='mt-10'>Reading Time : {readTime}</h1>
-                <p>Bookmark Count :0</p> 
+                <p>Bookmark Count :{bookMarked.length}</p> 
 
                 {
-                  bookMarked.map((marked) => <p>{marked.title}</p>)
+                  bookMarked.map((marked) => <p className='bg-amber-300 shadow  rounded-xl p-2 m-2'>{marked.title}</p>)
                 }
             </div>
 

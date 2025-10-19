@@ -19,7 +19,10 @@ const Blog = ({blog ,handleBookMark,handleReadCount}) => {
         <div className="author flex items-center justify-around">
                     <h3>{author}</h3>
                     <img className='w-16' src={author_img} alt="" />
-                    <button onClick={()=> handleBookMark(blog)}><FaBookmark size={25}/></button>
+
+                    <button onClick={()=> handleBookMark(blog)}
+                      
+                      ><FaBookmark size={25}/></button>
 
         </div>
       </div>
@@ -39,7 +42,7 @@ const Blog = ({blog ,handleBookMark,handleReadCount}) => {
       </div>
     
     <div className="card-actions justify-center">
-          <button onClick={ () => handleReadCount(blog.reading_time)} className='btn btn-primary w-30'>Read More</button>
+          <button onClick={ () => handleReadCount(blog.reading_time,blog.id)} className='btn btn-primary w-30'>Read More</button>
     </div>
   </div>
 </div>

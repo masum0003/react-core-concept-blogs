@@ -10,7 +10,7 @@ useEffect(()=>{
     .then(res => res.json())
     .then(data => setBlogs(data))
 },[])
-console.log(blogs)
+// console.log(blogs)
    
     return (
         <div>
@@ -18,7 +18,7 @@ console.log(blogs)
             
             <div className="all-blog grid  grid-cols-2 gap-3.5 ml-10">
                 {
-                    blogs.map(blog => <Blog handleReadCount={handleReadCount} handleBookMark={handleBookMark} blog={blog}></Blog>)
+                    blogs.map(blog => <Blog key={blog.id} handleReadCount={handleReadCount} handleBookMark={handleBookMark} blog={blog}></Blog>)
                 }
             </div>
         </div>
